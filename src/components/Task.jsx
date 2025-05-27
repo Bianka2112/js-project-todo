@@ -2,9 +2,13 @@ import { useState } from "react"
 
 export const Task = () => {
   const [task, setTask] = useState("")
+  const [tasks, setTasks] = useState([])
   
   const handleSubmit = e => {
     e.preventDefault()
+    if (task.trim() === "") return
+
+    setTasks(prev => [...prev, task])
     setTask("")
   }
 
@@ -19,6 +23,13 @@ export const Task = () => {
           />
           <button type="submit"> Add Task</button>
       </form>
+
+      <h2>My List</h2>
+      <ul>
+        {tasks.map((t, index) => (
+          <li key={index}>{t}</li>
+        ))}
+      </ul>
     </>
   )
 }

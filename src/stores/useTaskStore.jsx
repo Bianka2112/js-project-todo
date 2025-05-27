@@ -1,7 +1,25 @@
 import { create } from "zustand"
 
-export const useTasksStore = create(set => ({
-  tasks: [],
+const initialState = {
+  tasks: [
+    {
+      id: 1,
+      taskMsg: "Make a to-do app",
+      date: Date.now()
+    }
+  ]
+}
+
+export const useTasksStore = create((set, get) => ({
+  ...initialState,
+  createTask: (task) => {
+    const newTask = {
+      id: get().tasks.length > 0 ? get().tasks[0].id + 1 : 1,
+      taskMsg: task, 
+      date: new Date().toLocaleString()
+    }
+    set(state => ({tasks: [newTask, ...state.tasks] }))
+  }
 }))
 
 

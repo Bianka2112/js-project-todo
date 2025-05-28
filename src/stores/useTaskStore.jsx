@@ -5,7 +5,8 @@ const initialState = {
     {
       id: 1,
       taskMsg: "Make a to-do app",
-      date: Date.now()
+      date: Date.now(),
+      isCompleted: false
     }
   ]
 }
@@ -16,17 +17,14 @@ export const useTasksStore = create((set, get) => ({
     const newTask = {
       id: get().tasks.length > 0 ? get().tasks[0].id + 1 : 1,
       taskMsg: task, 
-      date: new Date().toLocaleString()
+      date: new Date().toLocaleString(),
+      isCompleted: false
     }
     set(state => ({tasks: [newTask, ...state.tasks] }))
-  }
+  },
+  toggleCompleted: (id) => set((state) => ({ 
+    tasks: state.tasks.map(task =>
+      task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
+    )
+  }))
 }))
-
-
-//   addTask: (task) => set(state => ({tasks: [...state.tasks, task]})),
-//   removeTask: (index) => set(state => {
-//     const newTasks = [...state.tasks]
-//       newTasks.splice(index, 1)
-//       return {tasks: newTasks}
-//   })
-//

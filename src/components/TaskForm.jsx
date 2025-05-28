@@ -9,7 +9,7 @@ export const TaskForm = () => {
     e.preventDefault()
     if (taskMsg.trim() === "") return
     createTask(taskMsg)
-    setTask("")
+    setTaskMsg("")
   }
 
   return (

@@ -1,4 +1,5 @@
 import { create } from "zustand"
+import { persist } from "zustand/middleware"
 
 const initialState = {
   tasks: [
@@ -11,7 +12,9 @@ const initialState = {
   ]
 }
 
-export const useTasksStore = create((set, get) => ({
+export const useTasksStore = create(
+  persist(
+    (set, get) => ({
   ...initialState,
 
   createTask: (task) => {
@@ -21,7 +24,7 @@ export const useTasksStore = create((set, get) => ({
       date: Date.now(),
       isCompleted: false
     }
-    set(state => ({tasks: [newTask, ...state.tasks] }))
+    set(state => ({ tasks: [newTask, ...state.tasks] }))
   },
   
   toggleCompleted: (id) => set((state) => ({ 
@@ -37,4 +40,7 @@ export const useTasksStore = create((set, get) => ({
   getCompletedCount: () => get().tasks.filter(task => task.isCompleted).length, 
 
   getPendingCount: () => get().tasks.filter(task => !task.isCompleted).length, 
-}))
+  }),
+
+  { name: "todo-storage" }
+))

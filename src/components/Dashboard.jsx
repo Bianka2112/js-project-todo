@@ -7,7 +7,7 @@ const Dashboard = () => {
 
   return (
     <section className="p-4 mb-4 bg-gray-100 rounded shadow-md">
-      <h1 className="text-xl font-bold mb-2">📋 Your Task Overview</h1>
+      <h2 className="text-xl font-bold mb-2">📋 Your Task Overview</h2>
       <p>Total tasks: {total}</p>
       <p>✅ Completed: {completed}</p>
       <p>🕒 Remaining: {pending}</p>

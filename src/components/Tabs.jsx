@@ -6,8 +6,8 @@ import { TaskList } from "./TaskList"
 
 export const Tabs = () => {
 const [activeTab, setActiveTab] = useState("todo")
-const pendingCount = useTasksStore(state => state.getPendingCount)
-const completedCount = useTasksStore(state => state.getCompletedCount)
+const pendingCount = useTasksStore(state => state.getPendingCount())
+const completedCount = useTasksStore(state => state.getCompletedCount())
 
   return (
     <div className="w-full mt-6">

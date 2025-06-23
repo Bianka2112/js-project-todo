@@ -24,11 +24,11 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
       </p>
       <div className="mt-2 flex items-center gap-4">
         <button onClick={() => toggleCompleted(id)}
-          className="text-sm px-2 py-1 rounded bg-slate-600 text-white hover:bg-slate-800 border-slate-300">
+          className="text-sm px-2 py-1 rounded bg-slate-500 text-white hover:bg-slate-800">
           {isCompleted ? "Undo" : "Complete"}
         </button>
         <button onClick={() => handleDelete(id)}
-          className="text-sm px-2 py-1 rounded bg-red-300 text-white hover:bg-red-700">
+          className="text-sm px-2 py-1 rounded bg-amber-600 text-white hover:bg-amber-700">
           Delete
         </button>
         <p className="text-xs text-slate-500 mt-1">{formattedDate} at {formattedTime}</p>

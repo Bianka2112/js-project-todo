@@ -19,17 +19,20 @@ export const TaskForm = () => {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          type="text"
-          value={taskMsg}
-          onChange={e => setTaskMsg(e.target.value)}
-          placeholder="Next to-do..."
+      <form onSubmit={handleSubmit} className="space-y-2">
+        <label htmlFor="taskInput" className="sr-only">Add new task</label>
+          <textarea
+            id="taskInput"
+            type="text"
+            value={taskMsg}
+            onChange={e => setTaskMsg(e.target.value)}
+            placeholder="Next to-do..."
+            className="w-full p-2 border rounded resize-none"
           />
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
-          <button type="submit"> Add Task</button>
+          <button type="submit" className="px-4 py-2 bg-slate-600 text-white rounded hover:bg-slate-700 disabled:bg-gray-300">
+            Add Task
+          </button>
       </form>
-    </>
   )
 }

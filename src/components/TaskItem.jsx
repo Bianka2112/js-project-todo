@@ -12,8 +12,14 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
   const handleDelete = useTasksStore(state => state.deleteTask)
 
   return (
-    <li className="p-4 bg-slate-50 border border-slate-200 rounded-lg shadow-sm mb-4">
-      <p className={`font-medium ${isCompleted ? "line-through text-slate-400" : "text-slate-800"}`}>
+    <li className={`p-4 bg-slate-50 border border-slate-200 rounded-lg shadow-sm mb-4
+      transition transform duration-300 ease-out 
+      ${isCompleted ? "grayscale" : "hover:-translate-y-1"}`}
+      >
+      <p className={`font-medium 
+        ${isCompleted 
+        ? "line-through text-slate-400" 
+        : "text-slate-800"}`}>
         {taskMsg}
       </p>
       <div className="mt-2 flex items-center gap-4">

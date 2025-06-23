@@ -8,7 +8,7 @@ export const CompletedTaskList = () => {
 
   if (completedTasks.length === 0) {
     return (
-      <p className="text-slate-500 text-sm italic">
+      <p className="text-slate-500 text-sm italic mb-2">
         Lets get something checked off ☑
       </p>
     )

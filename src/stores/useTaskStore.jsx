@@ -30,9 +30,11 @@ export const useTasksStore = create((set, get) => ({
     )
   })),
   
-  getTaskCount: () => get().tasks.filter(task => task.isCompleted).length, 
-
   deleteTask: (id) => set((state) => ({
     tasks: state.tasks.filter(t => t.id !== id)
-  }))
+  })),
+  
+  getCompletedCount: () => get().tasks.filter(task => task.isCompleted).length, 
+
+  getUncompletedCount: () => get().tasks.filter(task => !task.isCompleted).length, 
 }))

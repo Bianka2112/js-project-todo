@@ -1,10 +1,13 @@
 import { useState } from "react"
 
+import { useTasksStore } from "../stores/useTaskStore"
 import { CompletedTaskList } from "./CompletedTaskList"
 import { TaskList } from "./TaskList"
 
 export const Tabs = () => {
 const [activeTab, setActiveTab] = useState("todo")
+const pendingCount = useTasksStore(state => state.getPendingCount)
+const completedCount = useTasksStore(state => state.getCompletedCount)
 
   return (
     <div className="w-full mt-6">
@@ -16,7 +19,7 @@ const [activeTab, setActiveTab] = useState("todo")
               ? "bg-slate-700 text-white"
               : "bg-slate-200 text-slate-700 hover:bg-slate-300"}`}
             >
-          Pending Tasks
+          Pending Tasks ({pendingCount})
         </button>
         <button
           onClick={() => setActiveTab("completed")}
@@ -25,14 +28,14 @@ const [activeTab, setActiveTab] = useState("todo")
               ? "bg-slate-700 text-white"
               : "bg-slate-200 text-slate-700 hover:bg-slate-300"}`}
             >
-          Completed Tasks
+          Completed Tasks ({completedCount})
         </button>
       </div>
       <div
         className={`transition-opacity duration-500 ease-out 
           ${activeTab === "todo" 
           ? "opacity-100" 
-          : "opacity-30"}`}
+          : "opacity-40"}`}
       >
         {activeTab === "todo" && <TaskList />}
         {activeTab === "completed" && <CompletedTaskList />}

@@ -36,5 +36,5 @@ export const useTasksStore = create((set, get) => ({
   
   getCompletedCount: () => get().tasks.filter(task => task.isCompleted).length, 
 
-  getUncompletedCount: () => get().tasks.filter(task => !task.isCompleted).length, 
+  getPendingCount: () => get().tasks.filter(task => !task.isCompleted).length, 
 }))

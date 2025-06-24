@@ -41,7 +41,7 @@ const pulseTab = useTasksStore(state => state.pulseTab)
         </button>
       </div>
       <div
-        className={`min-h-[250px] transition-opacity duration-500 ease-out 
+        className={`min-h-[80px] xs:min-h-[250px] transition-opacity duration-500 ease-out 
           ${activeTab === "todo" 
           ? "opacity-100" 
           : "opacity-40"}`}

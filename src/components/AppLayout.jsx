@@ -21,7 +21,8 @@ const AppLayout = ({ children }) => {
       <div className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 place-self-center w-11/12 max-w-md flex flex-col p-7 min-h-[550px] rounded-xl shadow-md">
         <div className='flex items-center justify-between mt-5 mb-4 gap-2'>
           <header className="flex items-center gap-2">
-            <img className="w-12 object-contain" src="/justDoIt.png" alt="Just Do It logo"/>
+            <img className="w-12 object-contain block dark:hidden" src="/justDoIt.png" alt="Just Do It logo"/>
+            <img className="w-12 object-contain hidden dark:block" src="/justDoIt.onBlack.png" alt="Just Do It logo"/>
             <h1 className="text-2xl font-bold">Doing it...</h1>
           </header>
             <button

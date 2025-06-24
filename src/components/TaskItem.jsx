@@ -30,13 +30,13 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
     setTimeout(() => setMessage(null), 1000)
     setTimeout(() =>{
       deleteConfirmed(id)
-    }, 1000)
+    }, 1200)
   }
 
   return (
     <>
     {message && (
-      <div className="mx-auto w-fit p-2 items-center bg-indigo-200 dark:bg-indigo-200 text-indigo-800 dark:text-indigo-100 rounded shadow-lg/50 grayscale-0 transition-opacity animate-fade-in">
+      <div className="mx-auto w-fit p-2 items-center bg-indigo-200 dark:bg-indigo-100 text-indigo-800 dark:text-slate-800 rounded shadow-lg/50 grayscale-0 transition-opacity animate-fade-in">
         {message}
       </div>
       )}

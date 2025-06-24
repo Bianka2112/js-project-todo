@@ -29,7 +29,7 @@ PostCSS
 ## ♿ Accessibility & Performance
 
 🌱 Fully responsive: from 320px to 1600px+
-🏁 Lighthouse score: 95+ across the board
+🏁 Lighthouse score: 100 %
 🎨 Color contrast and keyboard navigation friendly
 
 ---

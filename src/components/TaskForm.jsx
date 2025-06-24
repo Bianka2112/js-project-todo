@@ -1,11 +1,11 @@
 import { useState } from "react"
-
 import { useTasksStore } from "../stores/useTaskStore"
 
 export const TaskForm = () => {
   const [taskMsg, setTaskMsg] = useState("")
-  const createTask = useTasksStore(state => state.createTask)
   const [error, setError] = useState()
+  const createTask = useTasksStore(state => state.createTask)
+  const triggerPulse = useTasksStore(state => state.triggerPulseTab)
   
   const handleSubmit = e => {
     e.preventDefault()
@@ -14,6 +14,7 @@ export const TaskForm = () => {
       return
     }
     createTask(taskMsg)
+    triggerPulse("todo")
     setTaskMsg("")
     setError("")
   }

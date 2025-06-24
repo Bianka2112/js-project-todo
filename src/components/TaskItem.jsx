@@ -16,25 +16,30 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
   const handleToggle = () => {
     setMessage(isCompleted ? "⏎ Task pending." : "✅ Task completed!")
     setIsAnimating(true)
+    setTimeout(() => setMessage(null), 1000)
     setTimeout(() => {
       toggleCompleted(id)
       triggerPulse(isCompleted ? "todo" : "completed")
-    }, 600)
-    setTimeout(() => setMessage(null), 3500)
+    }, 1000)
   }
 
   const deleteConfirmed = useTasksStore(state => state.deleteTask)
   const handleDelete = () => {
     setMessage("🗑️ Task deleted")
     setIsAnimating(true)
+    setTimeout(() => setMessage(null), 1000)
     setTimeout(() =>{
       deleteConfirmed(id)
-    }, 600)
-    setTimeout(() => setMessage(null), 2000)
+    }, 1000)
   }
 
   return (
     <>
+    {message && (
+      <div className="mx-auto w-fit p-2 items-center bg-indigo-200 dark:bg-indigo-200 text-indigo-800 dark:text-indigo-100 rounded shadow-lg/50 grayscale-0 transition-opacity animate-fade-in">
+        {message}
+      </div>
+      )}
       <li className={`p-4 bg-slate-50 dark:bg-slate-700 dark:text-slate-200 border border-slate-200 rounded-lg shadow-sm 
         transition transform duration-300 ease-in-out 
         ${isCompleted ? "grayscale" : ""}
@@ -58,11 +63,6 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
           <p className="sm:w-auto xs:ml-auto xs:text-right text-xs text-slate-500 dark:text-slate-400 mt-1">{formattedDate} at {formattedTime}</p>
         </div>
       </li>
-      {message && (
-      <div className="mx-auto w-fit p-2 items-center bg-indigo-100 dark:bg-indigo-500 text-indigo-900 dark:text-indigo-100 rounded shadow transition-opacity animate-fade-in">
-        {message}
-      </div>
-      )}
     </>
   )
 }

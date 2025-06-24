@@ -21,7 +21,7 @@ export const TaskForm = () => {
   return (
       <form onSubmit={handleSubmit} className="space-y-2">
         <label htmlFor="taskInput" className="sr-only">Add new task</label>
-          <textarea
+          <input
             id="taskInput"
             type="text"
             value={taskMsg}

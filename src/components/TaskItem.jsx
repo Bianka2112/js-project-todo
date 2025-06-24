@@ -59,7 +59,7 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
         </div>
       </li>
       {message && (
-      <div className="py-1 items-center bg-indigo-100 dark:bg-indigo-500 text-indigo-900 dark:text-indigo-100 rounded shadow transition-opacity animate-fade-in">
+      <div className="mx-auto w-fit p-2 items-center bg-indigo-100 dark:bg-indigo-500 text-indigo-900 dark:text-indigo-100 rounded shadow transition-opacity animate-fade-in">
         {message}
       </div>
       )}

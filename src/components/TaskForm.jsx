@@ -27,7 +27,7 @@ export const TaskForm = () => {
             value={taskMsg}
             onChange={e => setTaskMsg(e.target.value)}
             placeholder="Next to-do..."
-            className="w-full p-2 border rounded resize-none"
+            className="w-full p-2 border rounded resize-none dark:text-slate-600"
           />
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
           <button type="submit" className="px-4 py-2 bg-slate-600 text-white rounded hover:bg-indigo-400 disabled:bg-gray-300">

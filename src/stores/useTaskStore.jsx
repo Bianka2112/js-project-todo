@@ -16,6 +16,12 @@ export const useTasksStore = create(
   persist(
     (set, get) => ({
   ...initialState,
+  pulseTab: null,
+
+  triggerPulseTab: (tabName) => {
+    set({ pulseTab: tabName })
+    setTimeout(() => set({ pulseTab: null }), 800)
+  },
 
   createTask: (task) => {
     const newTask = {
@@ -31,6 +37,7 @@ export const useTasksStore = create(
     tasks: state.tasks.map(task =>
       task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
     )
+  
   })),
   
   deleteTask: (id) => set((state) => ({
@@ -42,5 +49,6 @@ export const useTasksStore = create(
   getPendingCount: () => get().tasks.filter(task => !task.isCompleted).length, 
   }),
 
+  
   { name: "todo-storage" }
 ))

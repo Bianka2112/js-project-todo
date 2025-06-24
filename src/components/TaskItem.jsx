@@ -11,22 +11,21 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
   const [message, setMessage] = useState(null)
   const [isAnimating, setIsAnimating] = useState(false)
   const toggleCompleted = useTasksStore(state => state.toggleCompleted)
+  const triggerPulse = useTasksStore(state => state.triggerPulseTab)
   
   const handleToggle = () => {
+    toggleCompleted(id)
     setMessage(isCompleted ? "↩️ Task marked pending." : "☑️ Task completed!")
     setIsAnimating(true)
-    setTimeout(() => {
-      toggleCompleted(id)
-      setIsAnimating(false)
-    }, 1000)
+    triggerPulse(isCompleted ? "todo" : "completed")  
     setTimeout(() => setMessage(null), 2500)
   }
 
   const handleDelete = useTasksStore(state => state.deleteTask)
 
   return (
-    <>
-      <li className={`p-4 bg-slate-50 dark:bg-slate-700 border border-slate-200 rounded-lg shadow-sm mb-4
+    <li className="relative min-h-[120px] mb-2">
+      <div className={`p-4 bg-slate-50 dark:bg-slate-700 dark:text-slate-200 border border-slate-200 rounded-lg shadow-sm
         transition transform duration-300 ease-in-out 
         ${isCompleted ? "grayscale" : "hover:-translate-y-1"}
         ${isAnimating ? 'collapse' : ''}`} 
@@ -34,7 +33,7 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
         <p className={`font-medium 
           ${isCompleted 
           ? "line-through text-slate-400" 
-          : "text-slate-800"}`}>
+          : "text-slate-800 dark:text-slate-200"}`}>
           {taskMsg}
         </p>
         <div className="mt-2 flex items-center gap-4">
@@ -46,14 +45,14 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
             className="text-sm px-2 py-1 rounded bg-amber-700 text-white hover:bg-amber-500">
             Delete
           </button>
-          <p className="text-xs text-slate-500 mt-1">{formattedDate} at {formattedTime}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{formattedDate} at {formattedTime}</p>
         </div>
-      </li>
+      </div>
       {message && (
-      <div className="mb-4 p-2 bg-indigo-100 dark:bg-indigo-800 text-indigo-900   dark:text-indigo-100 rounded shadow transition-opacity animate-fade-in">
+      <div className="p-2 mt-2 p-2 bg-indigo-100 dark:bg-indigo-500 text-indigo-900 dark:text-indigo-100 rounded shadow transition-opacity animate-fade-in">
         {message}
       </div>
       )}
-    </>
+    </li>
   )
 }

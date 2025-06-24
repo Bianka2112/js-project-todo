@@ -6,8 +6,11 @@ import { TaskList } from "./TaskList"
 
 export const Tabs = () => {
 const [activeTab, setActiveTab] = useState("todo")
+
 const pendingCount = useTasksStore(state => state.getPendingCount())
 const completedCount = useTasksStore(state => state.getCompletedCount())
+const pulseTab = useTasksStore(state => state.pulseTab)
+
 
   return (
     <div className="w-full mt-6">
@@ -17,7 +20,10 @@ const completedCount = useTasksStore(state => state.getCompletedCount())
             className={`px-4 py-2 text-sm font-medium rounded-full transition 
               ${activeTab === "todo"
               ? "bg-slate-700 text-white underline"
-              : "bg-slate-200 text-slate-700 hover:bg-indigo-300"}`}
+              : "bg-slate-200 text-slate-700 hover:bg-indigo-300"}
+              ${pulseTab === "todo"
+              ? "animate-pulse-once"
+              : ""}`}
             >
           Pending Tasks ({pendingCount})
         </button>
@@ -26,7 +32,10 @@ const completedCount = useTasksStore(state => state.getCompletedCount())
             className={`px-4 py-2 text-sm font-medium rounded-full transition 
               ${activeTab === "completed"
               ? "bg-slate-700 text-white underline"
-              : "bg-slate-200 text-slate-700 hover:bg-indigo-300"}`}
+              : "bg-slate-200 text-slate-700 hover:bg-indigo-300"}
+              ${pulseTab === "completed"
+              ? "animate-pulse-once"
+              : ""}`}
             >
           Completed Tasks ({completedCount})
         </button>

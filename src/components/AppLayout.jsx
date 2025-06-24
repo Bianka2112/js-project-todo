@@ -28,7 +28,12 @@ const AppLayout = ({ children }) => {
               onClick={handleToggle}
               className="text-sm bg-slate-200 dark:bg-slate-700 dark:text-slate-100 px-2 py-1 rounded hover:bg-indigo-300 dark:hover:bg-slate-400"
             >
-              {isDark ? "☀️ Light" : "🌙 Dark"}
+              <span aria-hidden="true">
+                {isDark ? "☀️" : "🌙"}
+              </span>
+              <span className="hidden xs:inline">
+                {isDark ? " Light" : " Dark"}
+              </span>
             </button>
          </div>
         {children}

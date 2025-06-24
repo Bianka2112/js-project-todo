@@ -6,7 +6,7 @@ const Dashboard = () => {
   const pending = useTasksStore(state => state.getPendingCount())
 
   return (
-    <section className="p-4 mb-4 bg-gray-100 rounded shadow-md">
+    <section className="p-4 mb-4 bg-gray-100 dark:bg-slate-700 rounded shadow-md">
       <h2 className="text-xl font-bold mb-2">📋 Your Task Overview</h2>
       <p>Total tasks: {total}</p>
       <p>✅ Completed: {completed}</p>

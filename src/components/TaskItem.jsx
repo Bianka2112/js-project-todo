@@ -12,7 +12,7 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
   const handleDelete = useTasksStore(state => state.deleteTask)
 
   return (
-    <li className={`p-4 bg-slate-50 border border-slate-200 rounded-lg shadow-sm mb-4
+    <li className={`p-4 bg-slate-50 dark:bg-slate-700 border border-slate-200 rounded-lg shadow-sm mb-4
       transition transform duration-300 ease-out 
       ${isCompleted ? "grayscale" : "hover:-translate-y-1"}`}
       >

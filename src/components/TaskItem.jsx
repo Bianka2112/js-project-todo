@@ -55,7 +55,7 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
             className="text-sm px-2 py-1 rounded bg-amber-700 text-white hover:bg-amber-500">
             Delete
           </button>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{formattedDate} at {formattedTime}</p>
+          <p className="sm:w-auto xs:ml-auto xs:text-right text-xs text-slate-500 dark:text-slate-400 mt-1">{formattedDate} at {formattedTime}</p>
         </div>
       </li>
       {message && (

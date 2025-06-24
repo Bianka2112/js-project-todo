@@ -40,13 +40,13 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
         ${isCompleted ? "grayscale" : ""}
         ${isAnimating ? "slide-out" : ""}`} 
         >
-        <p className={`font-medium 
+        <p className={`py-1 font-medium 
           ${isCompleted 
           ? "line-through text-slate-400" 
           : "text-slate-800 dark:text-slate-200"}`}>
           {taskMsg}
         </p>
-        <div className="mt-2 flex items-center gap-4">
+        <div className="mt-2 flex flex-wrap items-center gap-4">
           <button onClick={handleToggle}
             className="text-sm px-2 py-1 rounded bg-slate-500 text-white hover:bg-slate-800">
             {isCompleted ? "Undo" : "Complete"}

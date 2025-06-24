@@ -8,13 +8,20 @@ export const TaskList = () => {
   const activeTasks = tasks.filter(task => !task.isCompleted)
   const [quote, setQuote] = useState("")
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    const random = Math.floor(Math.random() * motivationalQuotes.length)
-    setQuote(motivationalQuotes[random])
-  }, 8000)
-  return () => clearInterval(interval)
-}, [])
+  useEffect(() => {
+    const getRandomQuote = () => {
+      const index = Math.floor(Math.random() * motivationalQuotes.length)
+      return motivationalQuotes[index]
+    }
+  
+    setQuote(getRandomQuote())
+  
+    const interval = setInterval(() => {
+      setQuote(getRandomQuote())
+    }, 8000)
+  
+    return () => clearInterval(interval)
+  }, [])
 
   if (activeTasks.length === 0) {
     return (

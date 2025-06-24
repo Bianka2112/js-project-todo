@@ -23,7 +23,15 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
     setTimeout(() => setMessage(null), 3500)
   }
 
-  const handleDelete = useTasksStore(state => state.deleteTask)
+  const deleteConfirmed = useTasksStore(state => state.deleteTask)
+  const handleDelete = () => {
+    setMessage("🗑️ Task deleted")
+    setIsAnimating(true)
+    setTimeout(() =>{
+      deleteConfirmed(id)
+    }, 600)
+    setTimeout(() => setMessage(null), 2000)
+  }
 
   return (
     <>
@@ -43,7 +51,7 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
             className="text-sm px-2 py-1 rounded bg-slate-500 text-white hover:bg-slate-800">
             {isCompleted ? "Undo" : "Complete"}
           </button>
-          <button onClick={() => handleDelete(id)}
+          <button onClick={handleDelete}
             className="text-sm px-2 py-1 rounded bg-amber-700 text-white hover:bg-amber-500">
             Delete
           </button>

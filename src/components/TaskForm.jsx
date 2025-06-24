@@ -30,7 +30,7 @@ export const TaskForm = () => {
             className="w-full p-2 border rounded resize-none"
           />
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
-          <button type="submit" className="px-4 py-2 bg-slate-600 text-white rounded hover:bg-slate-700 disabled:bg-gray-300">
+          <button type="submit" className="px-4 py-2 bg-slate-600 text-white rounded hover:bg-indigo-400 disabled:bg-gray-300">
             Add Task
           </button>
       </form>

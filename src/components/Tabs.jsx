@@ -11,13 +11,13 @@ const completedCount = useTasksStore(state => state.getCompletedCount())
 
   return (
     <div className="w-full mt-6">
-      <div className="flex justify-center gap-4 mb-6">
+      <div className="flex flex-wrap justify-center gap-4 mb-6">
         <button 
           onClick={() => setActiveTab("todo")}
             className={`px-4 py-2 text-sm font-medium rounded-full transition 
               ${activeTab === "todo"
-              ? "bg-slate-700 text-white"
-              : "bg-slate-200 text-slate-700 hover:bg-slate-300"}`}
+              ? "bg-slate-700 text-white underline"
+              : "bg-slate-200 text-slate-700 hover:bg-indigo-300"}`}
             >
           Pending Tasks ({pendingCount})
         </button>
@@ -25,8 +25,8 @@ const completedCount = useTasksStore(state => state.getCompletedCount())
           onClick={() => setActiveTab("completed")}
             className={`px-4 py-2 text-sm font-medium rounded-full transition 
               ${activeTab === "completed"
-              ? "bg-slate-700 text-white"
-              : "bg-slate-200 text-slate-700 hover:bg-slate-300"}`}
+              ? "bg-slate-700 text-white underline"
+              : "bg-slate-200 text-slate-700 hover:bg-indigo-300"}`}
             >
           Completed Tasks ({completedCount})
         </button>

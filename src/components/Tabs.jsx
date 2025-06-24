@@ -32,7 +32,7 @@ const completedCount = useTasksStore(state => state.getCompletedCount())
         </button>
       </div>
       <div
-        className={`transition-opacity duration-500 ease-out 
+        className={`min-h-[250px] transition-opacity duration-500 ease-out 
           ${activeTab === "todo" 
           ? "opacity-100" 
           : "opacity-40"}`}

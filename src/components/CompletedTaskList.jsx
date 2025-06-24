@@ -15,7 +15,7 @@ export const CompletedTaskList = () => {
   }
 
   return (
-    <section className="mt-6">
+    <section className="mt-6 border-t border-slate-200 pt-4">
       <h2 className="text-lg font-semibold mb-2">The Done List ✅</h2>
         <ul className="space-y-3">
           {completedTasks.map(task => (

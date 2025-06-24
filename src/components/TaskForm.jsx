@@ -10,7 +10,7 @@ export const TaskForm = () => {
   const handleSubmit = e => {
     e.preventDefault()
     if (taskMsg.trim() === "") {
-      setError("Please enter a task.")
+      setError("Cannot add an empty task.")
       return
     }
     createTask(taskMsg)
@@ -25,8 +25,11 @@ export const TaskForm = () => {
             id="taskInput"
             type="text"
             value={taskMsg}
-            onChange={e => setTaskMsg(e.target.value)}
-            placeholder="Next to-do..."
+            onChange={e => {
+              setTaskMsg(e.target.value)
+              if (error) setError("")
+            }}
+            placeholder="Next on the list..."
             className="w-full p-2 border rounded resize-none dark:text-slate-600"
           />
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}

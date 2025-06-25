@@ -1,6 +1,12 @@
 # 📝 Doing It... – A Minimalist To-Do App with Zustand + Tailwind
 
-**Doing It...** is a clean and accessible to-do list app built with React, Zustand for global state, and Tailwind CSS for styling. Designed to help you stay focused and inspired while you check off tasks - simple.
+**Doing It...** is a fun and interactive to-do list app built with React, Zustand for global state, and Tailwind CSS for styling. Designed to help you stay focused and inspired while you check off tasks - simple.
+
+---
+
+## 🔗 **Project Access**:
+
+🚀 [Live Demo](https://blr-tootoodo.netlify.app/)
 
 ---
 

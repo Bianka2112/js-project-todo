@@ -14,7 +14,7 @@ export const TaskItem = ({ task: {taskMsg, id, date, isCompleted} }) => {
   const triggerPulse = useTasksStore(state => state.triggerPulseTab)
   
   const handleToggle = () => {
-    setMessage(isCompleted ? "⏎ Task pending." : "✅ Task completed!")
+    setMessage(isCompleted ? "⏎ Task pending" : "✅ Task completed!")
     setIsAnimating(true)
     setTimeout(() => setMessage(null), 1000)
     setTimeout(() => {

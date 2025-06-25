@@ -13,12 +13,11 @@ const pulseTab = useTasksStore(state => state.pulseTab)
 
 
   return (
-    <div className="w-full mt-6">
-      <div className="relative justify-center gap-4 mb-6 border-b border-slate-300 dark:border-slate-600 max-w-sm mx-auto">
-        <div className="grid grid-cols-2 gap-2">
+    <div className="w-full mt-6 max-w-sm mx-auto">
+      <div className="relative flex mr-1 mb-6 border-b border-slate-300 dark:border-slate-600 ">
           <button 
             onClick={() => setActiveTab("todo")}
-              className={`px-4 py-2 text-sm font-medium rounded-md transition 
+              className={`w-1/2 px-4 py-2 text-sm font-medium rounded-md transition 
                 ${activeTab === "todo"
                 ? "bg-slate-700 text-white"
                 : "bg-slate-200 text-slate-700 hover:bg-indigo-300"}
@@ -30,7 +29,7 @@ const pulseTab = useTasksStore(state => state.pulseTab)
         </button>
         <button
           onClick={() => setActiveTab("completed")}
-            className={`px-4 py-2 text-sm font-medium rounded-md transition 
+            className={`w-1/2 px-4 py-2 text-sm font-medium rounded-md transition 
               ${activeTab === "completed"
               ? "bg-slate-700 text-white "
               : "bg-slate-200 text-slate-700 hover:bg-indigo-300"}
@@ -40,9 +39,8 @@ const pulseTab = useTasksStore(state => state.pulseTab)
             >
           Completed Tasks ({completedCount})
         </button>
-        </div>
         <span
-          className={`absolute bottom-0 h-1 w-1/2 bg-indigo-500 transition-transform duration-300 
+          className={`absolute bottom-0 left-0 h-1 w-1/2 bg-indigo-500 rounded transition-all duration-300 ease-out transform
             ${activeTab === "completed" ? "translate-x-full" : "translate-x-0"}`}
         />
       </div>

@@ -10,7 +10,7 @@ export const CompletedTaskList = () => {
     return (
       <div className="flex flex-col items-center justify-center h-48 px-4 text-slate-500 text-sm italic mt-4 mb-2">
         <p className="italic text-lg sm:text-xl dark:text-slate-300 opacity-80">
-          Lets get something ta-done ☑
+          Lets get something ta-done ✨
         </p>
       </div>
     )
